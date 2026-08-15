@@ -3,8 +3,9 @@ package com.example.ed_p1_grupo07;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import com.example.ed_p1_grupo07.arbol.Node;
-import com.example.ed_p1_grupo07.arbol.Tree;
+import com.espol.ed_p1_grupo07.Tablero;
+import com.espol.ed_p1_grupo07.arbol.Node;
+import com.espol.ed_p1_grupo07.arbol.Tree;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class PrubaTree {
 
 
         System.out.println("Tablero del primer estado generado:");
-        subArbolesGenerados.get(0).getRoot().getEstado().imprimirTablero();
+        //subArbolesGenerados.get(0).getRoot().getEstado().imprimirTablero();
     }
 
 }
