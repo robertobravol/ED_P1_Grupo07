@@ -1,4 +1,4 @@
-package com.example.ed_p1_grupo07.arbol;
+package com.espol.ed_p1_grupo07.arbol;
 
 import com.example.ed_p1_grupo07.Tablero;
 

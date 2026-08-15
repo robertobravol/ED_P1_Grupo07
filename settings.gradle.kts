@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ED_P1_Grupo07"
+rootProject.name = "Prueba"
 include(":app")
  
