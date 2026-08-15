@@ -8,6 +8,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.espol.ed_p1_grupo07.arbol.Node;
+import com.espol.ed_p1_grupo07.arbol.Tree;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,4 +26,5 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
 }
