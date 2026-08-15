@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.ed_p1_grupo07.arbol.Tree
 import com.example.ed_p1_grupo07.ui.theme.ED_P1_Grupo07Theme
 
 class MainActivity : ComponentActivity() {

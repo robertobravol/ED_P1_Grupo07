@@ -78,13 +78,51 @@ public class Tablero {
         return 0;
 
     }
+
     public boolean estaLleno(){
 
         return obtenerCasillasVacias().isEmpty();
 
     }
 
-    public void marcarCasillas(int fila, int columna, char simbolo){} // por implementar
+    public void marcarCasillas(int fila, int columna, int jugador){
+
+        this.celdas[fila][columna] = jugador;
+
+    }
 
 
+    public Tablero clonarTablero() {
+
+        Tablero nuevoTablero = new Tablero();
+
+        for (int i = 0; i < this.celdas.length; i++) {
+
+            for (int j = 0; j < this.celdas[i].length; j++) {
+
+                int valorActual = this.celdas[i][j];
+                nuevoTablero.celdas[i][j] = valorActual;
+
+            }
+
+        }
+
+        return nuevoTablero;
+
+    }
+
+    public void imprimirTablero() {
+        System.out.println("-------");
+        for (int i = 0; i < celdas.length; i++) {
+            System.out.print("|");
+            for (int j = 0; j < celdas[i].length; j++) {
+                // Convierte los números a caracteres para mejor lectura
+                char simbolo = ' ';
+                if (celdas[i][j] == 1) simbolo = 'X';
+                else if (celdas[i][j] == -1) simbolo = 'O';
+                System.out.print(simbolo + "|");
+            }
+            System.out.println("\n-------");
+        }
+    }
 }
