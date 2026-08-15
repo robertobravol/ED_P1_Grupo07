@@ -1,4 +1,4 @@
-package com.example.ed_p1_grupo07;
+package com.espol.ed_p1_grupo07;
 
 import java.util.LinkedList;
 import java.util.List;
