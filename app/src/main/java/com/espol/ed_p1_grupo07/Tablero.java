@@ -130,9 +130,21 @@ public class Tablero {
         return celdas;
     }
 
-    public void setCeldas(int[][] celdas) {
-        this.celdas = celdas;
+public void setCeldas(int[][] celdas) {
+    if (celdas == null || celdas.length != 3) {
+        throw new IllegalArgumentException("celdas debe ser una matriz 3x3 no nula");
     }
+    for (int i = 0; i < 3; i++) {
+        if (celdas[i] == null || celdas[i].length != 3) {
+            throw new IllegalArgumentException("celdas debe ser una matriz 3x3 no nula");
+        }
+    }
+
+    this.celdas = new int[3][3];
+    for (int i = 0; i < 3; i++) {
+        System.arraycopy(celdas[i], 0, this.celdas[i], 0, 3);
+    }
+}
 
     public int getCelda(int fila, int columna) {
         return celdas[fila][columna];
