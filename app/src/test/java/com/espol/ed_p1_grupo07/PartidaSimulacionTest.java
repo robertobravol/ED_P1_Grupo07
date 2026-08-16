@@ -60,10 +60,11 @@ public class PartidaSimulacionTest {
 
             while (tablero.verificarGanador() == 0 && !tablero.estaLleno()) {
                 if (turno == 1) {
-                    int[] mov = compX.obtenerMejorMovimiento(tablero);
-                    assertNotNull(mov);
-                    tablero.marcarCasillas(mov[0], mov[1], 1);
-                    turno = -1;
+int[] mov = compX.obtenerMejorMovimiento(tablero);
+assertNotNull(mov);
+assertTrue("La casilla elegida por la computadora debe estar vacía", tablero.getCelda(mov[0], mov[1]) == 0);
+tablero.marcarCasillas(mov[0], mov[1], 1);
+turno = -1;
                 } else {
                     List<int[]> vacias = tablero.obtenerCasillasVacias();
                     int[] mov = vacias.get(random.nextInt(vacias.size()));
