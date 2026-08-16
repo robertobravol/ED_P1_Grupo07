@@ -48,6 +48,10 @@ public class Tree {
 
     }
 
+    public void generarEstadosPosibles(){
+        generalEstadosPosibles();
+    }
+
 
     public int cambiarJugadorEnTurno(int i){
 

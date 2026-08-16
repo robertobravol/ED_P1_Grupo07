@@ -23,6 +23,7 @@ public class Node {
 
     public Node(Tablero estado, int jugadorEnTurno) {
 
+        this.hijos = new ArrayList<>();
         this.estado = estado;
         this.jugadorEnTurno = jugadorEnTurno;
 

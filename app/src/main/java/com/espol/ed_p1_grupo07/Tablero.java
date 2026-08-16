@@ -125,4 +125,46 @@ public class Tablero {
             System.out.println("\n-------");
         }
     }
+
+    public int[][] getCeldas() {
+        return celdas;
+    }
+
+    public void setCeldas(int[][] celdas) {
+        this.celdas = celdas;
+    }
+
+    public int getCelda(int fila, int columna) {
+        return celdas[fila][columna];
+    }
+
+    public void setCelda(int fila, int columna, int jugador) {
+        this.celdas[fila][columna] = jugador;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Tablero other = (Tablero) obj;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (this.celdas[i][j] != other.celdas[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                result = 31 * result + celdas[i][j];
+            }
+        }
+        return result;
+    }
 }
