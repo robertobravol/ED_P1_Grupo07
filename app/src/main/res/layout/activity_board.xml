@@ -5,13 +5,32 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_app"
+    android:background="@drawable/bg_gradient"
     tools:context=".BoardActivity">
+
+    <Button
+        android:id="@+id/buttonCloseGame"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="#900A63"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Salir"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:icon="@drawable/close_icon"
+        app:iconPadding="8dp"
+        app:iconSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
         android:layout_width="350dp"
-        android:layout_height="492dp"
-        android:background="@drawable/panel"
+        android:layout_height="490dp"
+        android:background="@drawable/panel_main_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

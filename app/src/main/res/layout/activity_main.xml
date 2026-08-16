@@ -6,15 +6,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_app"
+    android:background="@drawable/bg_gradient"
     tools:context=".MainActivity">
 
-    <!--Logo-->
+    <!-- Logo -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,9 +23,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="278dp"
-        android:layout_height="375dp"
-        android:background="@drawable/panel"
+        android:layout_width="320dp"
+        android:layout_height="420dp"
+        android:background="@drawable/panel_main_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,159 +33,44 @@
 
         <Button
             android:id="@+id/buttonPlay"
-            android:layout_width="200dp"
-            android:layout_height="54dp"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
             android:layout_marginTop="50dp"
-            android:backgroundTint="#0074EE"
+            android:backgroundTint="#0E2978"
             android:fontFamily="sans-serif-smallcaps"
+            android:elevation="30dp"
             android:text="Jugar partida"
-            android:textSize="17sp"
+            android:textAlignment="viewStart"
+            android:textSize="20sp"
             android:textStyle="bold"
+            app:cornerRadius="14dp"
             app:icon="@drawable/play_icon"
-            app:iconPadding="0dp"
+            app:iconPadding="8dp"
+            app:iconSize="22dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeWidth="2dp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/buttonOptions"
-            android:layout_width="200dp"
-            android:layout_height="54dp"
+            android:id="@+id/buttonCloseApp"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#F83599"
+            android:backgroundTint="#780E0E"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="Opciones"
-            android:textSize="17sp"
+            android:text="Salir del juego"
+            android:textAlignment="viewStart"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:icon="@drawable/settings_icon"
-            app:iconPadding="0dp"
+            app:cornerRadius="14dp"
+            app:icon="@drawable/close_icon"
+            app:iconPadding="8dp"
+            app:iconSize="26dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonPlay"
-            app:strokeWidth="2dp" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonPlay" />
 
-        <Button
-            android:id="@+id/buttonLeave"
-            android:layout_width="200dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#9D0101"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="Salir"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:icon="@drawable/logout_icon"
-            app:iconPadding="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonOptions"
-            app:strokeWidth="2dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="172dp"
-        app:layout_constraintEnd_toStartOf="@+id/logo"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:srcCompat="@drawable/o" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/o" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:srcCompat="@drawable/o" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/o" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/x" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.592"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/x" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:srcCompat="@drawable/x" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="140dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:srcCompat="@drawable/x" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@drawable/x" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="45dp"
-        app:layout_constraintEnd_toStartOf="@+id/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/x" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
