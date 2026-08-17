@@ -1,6 +1,8 @@
 package com.espol.ed_p1_grupo07;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,15 @@ public class BoardActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ImageButton buttonCloseGame = findViewById(R.id.buttonCloseGame);
+        buttonCloseGame.setOnClickListener(v -> {
+            closeGame();
+        });
+    }
+
+    private void closeGame() {
+        Intent intent = new Intent(BoardActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

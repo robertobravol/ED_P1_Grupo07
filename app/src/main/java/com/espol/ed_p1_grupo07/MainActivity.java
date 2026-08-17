@@ -1,5 +1,6 @@
 package com.espol.ed_p1_grupo07;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void play() {
         // Implementación para empezar una partida en el juego.
+        Intent intent = new Intent(MainActivity.this, BoardActivity.class);
+        startActivity(intent);
     }
 
     private void closeApp() {
