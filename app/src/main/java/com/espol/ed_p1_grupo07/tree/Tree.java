@@ -24,7 +24,7 @@ public class Tree {
     public void generalEstadosPosibles(){
 
         ArrayList<Tree> nuevosHijos = new ArrayList<>();
-        List<int[]> casillasVacias = root.getEstado().obtenerCasillasVacias();
+        List<int[]> casillasVacias = root.getEstado().getEmptyCells();
 
         for(int i = 0; i < casillasVacias.size(); i++){
 
@@ -32,7 +32,7 @@ public class Tree {
             int fila = coordenada[0];
             int columna = coordenada[1];
 
-            Board nuevoTablero = root.getEstado().clonarTablero();
+            Board nuevoTablero = root.getEstado().cloneBoard();
 
             nuevoTablero.markCell(fila, columna, root.getJugadorEnTurno());
 

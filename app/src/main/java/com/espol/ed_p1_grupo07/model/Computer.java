@@ -207,7 +207,7 @@ public class Computer {
             Board estadoNivel1 = nodoNivel1.getEstado();
 
             // Si la computadora gana inmediatamente o el Board se llena:
-            if (estadoNivel1.checkWinner() == this.symbol || estadoNivel1.estaLleno()) {
+            if (estadoNivel1.checkWinner() == this.symbol || estadoNivel1.isFull()) {
                 int utilidadTerminal = calcularUtilidad(estadoNivel1, this.symbol);
                 nodoNivel1.setUtilidad(utilidadTerminal);
             } else {
@@ -317,7 +317,7 @@ public class Computer {
      * @return Arreglo {fila, columna} con la casilla recomendada.
      */
     public static int[] sugerirMovimiento(Board BoardActual, int jugadorHumano) {
-        if (BoardActual == null || BoardActual.estaLleno()) {
+        if (BoardActual == null || BoardActual.isFull()) {
             return null;
         }
         Computer motorSugerencia = new Computer(jugadorHumano);

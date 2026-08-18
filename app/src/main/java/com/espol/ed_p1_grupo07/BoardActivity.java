@@ -1,8 +1,9 @@
 package com.espol.ed_p1_grupo07;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.os.Looper;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -76,7 +77,7 @@ public class BoardActivity extends AppCompatActivity {
         int playerSymbol = getIntent().getIntExtra("playerSymbol", Board.X);
 
         this.player = new Player("Jugador", playerSymbol);
-        this.computer = new Computer(-playerSymbol); // Recibe el símbolo opuesto del jugador
+        this.computer = new Computer(-playerSymbol); // Recibe el símbolo opuesto del jugador.
         this.board = new Board(); // Tablero Vacío
     }
 
@@ -86,16 +87,10 @@ public class BoardActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // Selecciona la celda (row, column) y lo marca en la casilla correspondiente en la UI.
+    // Selecciona la celda y lo marca en la celda correspondiente en la UI.
     private void selectCell(int row, int column, int playerSymbol) {
-        // Validación
-        if (row<0 || column<0 || row>2 || column>2) {
-            return;
-        }
-
-        // Validación de celda ocupada.
-        if (board.getCell(row, column) != Board.EMPTY_CELL) {
-            return;
+        if(!board.markCell(row, column, playerSymbol)) {
+            return; // La celda no fue marcada
         }
 
         if (playerSymbol == Board.CIRCLE) {
@@ -104,12 +99,15 @@ public class BoardActivity extends AppCompatActivity {
             cellButtons[row][column].setImageResource(R.drawable.x);
         }
 
-        board.markCell(row, column, playerSymbol);
+        // Verifica si alguien ganó la partida.
+        if (board.checkWinner() != 0) {
+            showResult();
+            return;
+        }
 
-        // Verifica si alguien ganó la partida o si fue empate.
-        if (board.checkWinner() != 0 || board.estaLleno()) {
-            View resultGame = findViewById(R.id.resultContainer);
-            resultGame.setVisibility(View.VISIBLE);
+        // Si el tablero está lleno, se limpia el tablero.
+        if (board.isFull()) {
+            cleanBoardLayout();
             return;
         }
 
@@ -122,5 +120,36 @@ public class BoardActivity extends AppCompatActivity {
     private void makeComputerMove() {
         int[] cellSelectedByComputer = computer.obtenerMejorMovimiento(board);
         selectCell(cellSelectedByComputer[0], cellSelectedByComputer[1], computer.getsymbol());
+    }
+
+    private void setBoardEnabled(boolean enabled) {
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                cellButtons[i][j].setEnabled(enabled);
+            }
+        }
+    }
+
+    // Muestra el resultado de la partida.
+    private void showResult() {
+        setBoardEnabled(false);
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            View resultGame = findViewById(R.id.resultContainer);
+            resultGame.setVisibility(View.VISIBLE);
+
+            setBoardEnabled(true);
+        }, 1000);
+    }
+
+    // Limpia el tablero internamente y en la UI
+    private void cleanBoardLayout() {
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            for (int i = 0; i<=2; i++) {
+                for (int j = 0; j<=2; j++) {
+                    cellButtons[i][j].setImageDrawable(null);
+                }
+            }
+            board.cleanBoard();
+        }, 1000);
     }
 }

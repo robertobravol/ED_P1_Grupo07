@@ -10,7 +10,17 @@ public class Board {
     public static final int X = 1;
     public static final int EMPTY_CELL = 0;
 
+    // Tablero 3x3
     public Board(){
+        this.cells = new int[][] {
+                {EMPTY_CELL, EMPTY_CELL, EMPTY_CELL},
+                {EMPTY_CELL, EMPTY_CELL, EMPTY_CELL},
+                {EMPTY_CELL, EMPTY_CELL, EMPTY_CELL}
+        };
+    }
+
+    // Limpia el tablero actual.
+    public void cleanBoard() {
         this.cells = new int[][] {
                 {EMPTY_CELL, EMPTY_CELL, EMPTY_CELL},
                 {EMPTY_CELL, EMPTY_CELL, EMPTY_CELL},
@@ -20,123 +30,93 @@ public class Board {
 
     // Obtiene el valor de una celda.
     public int getCell(int row, int column) {
+        if (!isValidPosition(row, column)) {
+            throw new IllegalArgumentException("Posición fuera del tablero.");
+        }
         return cells[row][column];
     }
 
-    public List<int[]> obtenerCasillasVacias(){
+    // Retorna una lista con las posiciones de las celdas vacías.
+    public List<int[]> getEmptyCells(){
 
-        if(cells.length == 0){
-
-            return null;
-
-        }
-
-        List<int[]> lista = new LinkedList<>();
+        List<int[]> list = new LinkedList<>();
 
         for(int i = 0; i < cells.length; i++){
-
             for(int j = 0; j < cells[i].length; j++){
-
-                if(cells[i][j] == 0){
-
-                    lista.add(new int[]{i, j});
-
+                if(cells[i][j] == EMPTY_CELL){
+                    list.add(new int[]{i, j});
                 }
-
             }
-
         }
 
-        return lista;
+        return list;
+    }
 
+    // Verifica si una posicion (row, column) es válida.
+    private boolean isValidPosition(int row, int column) {
+        return row >= 0 && row < cells.length && column >= 0 && column < cells[row].length;
     }
 
     // Verifica cuál jugador es el ganador.
     public int checkWinner(){
         // Verifica filas
         for (int i = 0; i <= 2; i++) {
-            if (cells[i][0] != 0 && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
+            if (cells[i][0] != EMPTY_CELL && cells[i][0] == cells[i][1] && cells[i][1] == cells[i][2]) {
                 return cells[i][0];
             }
         }
 
         // Verifica columnas
         for (int j = 0; j <= 2; j++) {
-            if (cells[0][j] != 0 && cells[0][j] == cells[1][j] && cells[1][j] == cells[2][j]) {
+            if (cells[0][j] != EMPTY_CELL && cells[0][j] == cells[1][j] && cells[1][j] == cells[2][j]) {
                 return cells[0][j];
             }
         }
 
         // Verifica diagonales
-        if (cells[0][0] != 0 && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
+        if (cells[0][0] != EMPTY_CELL && cells[0][0] == cells[1][1] && cells[1][1] == cells[2][2]) {
             return cells[0][0];
         }
 
-        if (cells[0][2] != 0 && cells[0][2] == cells[1][1] && cells[1][1] == cells[2][0]) {
+        if (cells[0][2] != EMPTY_CELL && cells[0][2] == cells[1][1] && cells[1][1] == cells[2][0]) {
             return cells[0][2];
         }
 
-        // Empate
+        // 0: No hay ganador
         return 0;
     }
 
-    public boolean estaLleno(){
-
-        return obtenerCasillasVacias().isEmpty();
-
+    // Comprueba si no hay casillas vacías o todas las casillas están ocupadas.
+    public boolean isFull(){
+        return getEmptyCells().isEmpty();
     }
 
-    // Marca una casilla en el tablero.
-    public void markCell(int row, int column, int playerSymbol){
-        this.cells[row][column] = playerSymbol;
-    }
-
-
-    public Board clonarTablero() {
-
-        Board nuevoBoard = new Board();
-
-        for (int i = 0; i < this.cells.length; i++) {
-
-            for (int j = 0; j < this.cells[i].length; j++) {
-
-                int valorActual = this.cells[i][j];
-                nuevoBoard.cells[i][j] = valorActual;
-
-            }
-
+    // Marca una casilla en el tablero con el símbolo del jugador.
+    public boolean markCell(int row, int column, int playerSymbol){
+        if (!isValidPosition(row, column)) {
+            throw new IllegalArgumentException("Posición fuera del tablero.");
         }
 
-        return nuevoBoard;
-
-    }
-
-    public int[][] getCeldas() {
-        return cells;
-    }
-
-    public void setCeldas(int[][] cells) {
-        if (cells == null || cells.length != 3) {
-            throw new IllegalArgumentException("celdas debe ser una matriz 3x3 no nula");
+        // Verifica si a celda esta libre para marcar
+        if (this.cells[row][column] == EMPTY_CELL) {
+            this.cells[row][column] = playerSymbol;
+            return true;
         }
-        for (int i = 0; i < 3; i++) {
-            if (cells[i] == null || cells[i].length != 3) {
-                throw new IllegalArgumentException("celdas debe ser una matriz 3x3 no nula");
+        return false;
+    }
+
+    // Crea una copia del tablero actual y lo retorna.
+    public Board cloneBoard() {
+        Board newBoard = new Board();
+
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells[i].length; j++) {
+                int value = this.cells[i][j];
+                newBoard.cells[i][j] = value;
             }
         }
 
-        this.cells = new int[3][3];
-        for (int i = 0; i < 3; i++) {
-            System.arraycopy(cells[i], 0, this.cells[i], 0, 3);
-        }
-    }
-
-    public int getCelda(int fila, int columna) {
-        return cells[fila][columna];
-    }
-
-    public void setCelda(int fila, int columna, int jugador) {
-        this.cells[fila][columna] = jugador;
+        return newBoard;
     }
 
     @Override
@@ -144,8 +124,8 @@ public class Board {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Board other = (Board) obj;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells[i].length; j++) {
                 if (this.cells[i][j] != other.cells[i][j]) {
                     return false;
                 }
@@ -157,8 +137,8 @@ public class Board {
     @Override
     public int hashCode() {
         int result = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells[i].length; j++) {
                 result = 31 * result + cells[i][j];
             }
         }
