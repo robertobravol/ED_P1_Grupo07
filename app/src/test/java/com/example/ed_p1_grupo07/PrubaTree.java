@@ -4,8 +4,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.espol.ed_p1_grupo07.model.Board;
-import com.espol.ed_p1_grupo07.arbol.Node;
-import com.espol.ed_p1_grupo07.arbol.Tree;
+import com.espol.ed_p1_grupo07.tree.TreeNode;
+import com.espol.ed_p1_grupo07.tree.Tree;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class PrubaTree {
         Board boardInicial = new Board();
         boardInicial.marcarCasillas(1, 1, 1); // X en el centro
 
-        Node nodoRaiz = new Node(boardInicial, -1);
+        TreeNode nodoRaiz = new TreeNode(boardInicial, -1);
         Tree arbolJuego = new Tree(nodoRaiz);
 
         arbolJuego.generalEstadosPosibles();

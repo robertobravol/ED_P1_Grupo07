@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,74 +9,169 @@
     android:background="@drawable/bg_gradient"
     tools:context=".BoardActivity">
 
-
+    <!-- TABLERO COMPLETO -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/boardLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/board"
+        android:background="@drawable/board3x3"
 
-        app:layout_constraintWidth_percent="0.88"
+        app:layout_constraintWidth_percent="0.95"
         app:layout_constraintDimensionRatio="1:1"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintVertical_bias="0.55">
+
+
+        <!--
+            ÁREA INTERIOR DEL TABLERO
+
+            Este GridLayout se coloca SOLO sobre
+            las 9 celdas y no sobre el marco.
+        -->
+        <GridLayout
+            android:id="@+id/cellsLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:columnCount="3"
+            android:rowCount="3"
+
+            app:layout_constraintWidth_percent="0.74"
+            app:layout_constraintHeight_percent="0.67"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <!-- FILA 1 -->
+
+            <ImageButton
+                android:id="@+id/cell0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/cell1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/cell2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+
+            <!-- FILA 2 -->
+
+            <ImageButton
+                android:id="@+id/cell3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/cell4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/cell5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+
+            <!-- FILA 3 -->
+
+            <ImageButton
+                android:id="@+id/cell6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/cell7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/cell8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitCenter" />
+
+        </GridLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- BOTÓN CERRAR -->
     <ImageButton
         android:id="@+id/buttonCloseGame"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
-        android:background="@drawable/close_icon"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/close_icon"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/playersLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/panel_players"
-
-        app:layout_constraintWidth_percent="0.88"
-        app:layout_constraintDimensionRatio="3.78:1"
-
-        app:layout_constraintBottom_toTopOf="@id/boardLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="75dp"
-            android:fontFamily="sans-serif"
-            android:text="PC"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:fontFamily="sans-serif"
-            android:text="Jugador"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/resultContainer"
+        layout="@layout/container_winner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

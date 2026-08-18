@@ -11,10 +11,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.espol.ed_p1_grupo07.model.Board;
-import com.espol.ed_p1_grupo07.model.Computer;
-import com.espol.ed_p1_grupo07.model.Player;
-
 public class SymbolSelectionActivity extends AppCompatActivity {
 
     private ImageButton buttonX;
@@ -67,7 +63,7 @@ public class SymbolSelectionActivity extends AppCompatActivity {
 
     // Inicia el juego
     private void startGame() {
-        // El jugador No seleccionó ningún símbolo para jugar.
+        // El jugador no seleccionó ningún símbolo para jugar.
         if (playerSymbol == 0) {
             return;
         }

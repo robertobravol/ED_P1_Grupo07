@@ -11,6 +11,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    private Button buttonPlay;
+    private Button buttonClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +26,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button buttonPlay = findViewById(R.id.buttonPlay);
-        buttonPlay.setOnClickListener(v -> {
+        this.buttonPlay = findViewById(R.id.buttonPlay);
+        this.buttonPlay.setOnClickListener(v -> {
             play();
         });
 
-        Button buttonClose = findViewById(R.id.buttonCloseApp);
-        buttonClose.setOnClickListener(v -> {
+        this.buttonClose = findViewById(R.id.buttonCloseApp);
+        this.buttonClose.setOnClickListener(v -> {
             closeApp();
         });
     }
 
+    // Enviará al usuario a la actividad para escoger su símbolo.
     private void play() {
-        // Enviará al jugador a escoger su símbolo para jugar.
         Intent intent = new Intent(MainActivity.this, SymbolSelectionActivity.class);
         startActivity(intent);
     }
 
+    // Cierra todas las actividades de la App.
     private void closeApp() {
         finishAffinity();
     }

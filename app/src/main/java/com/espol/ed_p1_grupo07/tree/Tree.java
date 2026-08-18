@@ -1,0 +1,86 @@
+package com.espol.ed_p1_grupo07.tree;
+
+import com.espol.ed_p1_grupo07.model.Board;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Tree {
+
+    private TreeNode root;
+
+    public Tree(TreeNode root) {
+
+        this.root = root;
+
+    }
+
+    public Tree() {
+
+        this.root = null;
+
+    }
+
+    public void generalEstadosPosibles(){
+
+        ArrayList<Tree> nuevosHijos = new ArrayList<>();
+        List<int[]> casillasVacias = root.getEstado().obtenerCasillasVacias();
+
+        for(int i = 0; i < casillasVacias.size(); i++){
+
+            int[] coordenada = casillasVacias.get(i);
+            int fila = coordenada[0];
+            int columna = coordenada[1];
+
+            Board nuevoTablero = root.getEstado().clonarTablero();
+
+            nuevoTablero.markCell(fila, columna, root.getJugadorEnTurno());
+
+            TreeNode nuevoNodo = new TreeNode(nuevoTablero, cambiarJugadorEnTurno(root.getJugadorEnTurno()));
+
+            Tree nuevoArbol = new Tree(nuevoNodo);
+
+            nuevosHijos.add(nuevoArbol);
+        }
+
+        root.setHijos(nuevosHijos);
+
+
+    }
+
+    public void generarEstadosPosibles(){
+        generalEstadosPosibles();
+    }
+
+
+    public int cambiarJugadorEnTurno(int i){
+
+        if(i == 1){
+
+            return -1;
+
+        }
+
+        if( i == -1 ){
+
+            return 1;
+
+        }
+
+        return 0;
+
+    }
+
+    public TreeNode getRoot() {
+
+        return root;
+
+    }
+
+    public void setRoot(TreeNode root) {
+
+        this.root = root;
+
+    }
+    
+}

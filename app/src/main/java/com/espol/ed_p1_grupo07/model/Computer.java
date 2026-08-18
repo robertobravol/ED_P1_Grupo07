@@ -1,7 +1,7 @@
 package com.espol.ed_p1_grupo07.model;
 
-import com.espol.ed_p1_grupo07.arbol.Node;
-import com.espol.ed_p1_grupo07.arbol.Tree;
+import com.espol.ed_p1_grupo07.tree.TreeNode;
+import com.espol.ed_p1_grupo07.tree.Tree;
 
 import java.util.List;
 
@@ -19,13 +19,6 @@ public class Computer {
 
     private int symbol;
     private Tree arbolDecision;
-
-    /**
-     * Constructor por defecto. Asigna el símbolo 1 ('X') por defecto.
-     */
-    public Computer() {
-        this(1);
-    }
 
     /**
      * Constructor que inicializa la computadora con un símbolo específico.
@@ -67,7 +60,7 @@ public class Computer {
         for (int i = 0; i < 3; i++) {
             boolean disponible = true;
             for (int j = 0; j < 3; j++) {
-                if (Board.getCelda(i, j) == oponente) {
+                if (Board.getCell(i, j) == oponente) {
                     disponible = false;
                     break;
                 }
@@ -90,7 +83,7 @@ public class Computer {
         for (int j = 0; j < 3; j++) {
             boolean disponible = true;
             for (int i = 0; i < 3; i++) {
-                if (Board.getCelda(i, j) == oponente) {
+                if (Board.getCell(i, j) == oponente) {
                     disponible = false;
                     break;
                 }
@@ -111,17 +104,17 @@ public class Computer {
         int diagonalesDisponibles = 0;
 
         // Diagonal principal: (0,0), (1,1), (2,2)
-        boolean diagPrincipal = (Board.getCelda(0, 0) != oponente &&
-                                 Board.getCelda(1, 1) != oponente &&
-                                 Board.getCelda(2, 2) != oponente);
+        boolean diagPrincipal = (Board.getCell(0, 0) != oponente &&
+                                 Board.getCell(1, 1) != oponente &&
+                                 Board.getCell(2, 2) != oponente);
         if (diagPrincipal) {
             diagonalesDisponibles++;
         }
 
         // Diagonal secundaria: (0,2), (1,1), (2,0)
-        boolean diagSecundaria = (Board.getCelda(0, 2) != oponente &&
-                                  Board.getCelda(1, 1) != oponente &&
-                                  Board.getCelda(2, 0) != oponente);
+        boolean diagSecundaria = (Board.getCell(0, 2) != oponente &&
+                                  Board.getCell(1, 1) != oponente &&
+                                  Board.getCell(2, 0) != oponente);
         if (diagSecundaria) {
             diagonalesDisponibles++;
         }
@@ -165,7 +158,7 @@ public class Computer {
      * @return Utilidad del Board.
      */
     public static int calcularUtilidad(Board Board, int jugador) {
-        int ganador = Board.verificarGanador();
+        int ganador = Board.checkWinner();
         if (ganador == jugador) {
             return VALOR_VICTORIA;
         } else if (ganador == -jugador) {
@@ -193,7 +186,7 @@ public class Computer {
             return null;
         }
 
-        Node nodoRaiz = new Node(BoardActual, this.symbol);
+        TreeNode nodoRaiz = new TreeNode(BoardActual, this.symbol);
         Tree arbol = new Tree(nodoRaiz);
 
         // Paso 1: Generar estados de nivel 1 (posibles movimientos propios de la computadora)
@@ -210,11 +203,11 @@ public class Computer {
 
         // Paso 2 y Paso 3: Proyección del oponente y cálculo de utilidad mínima por familia
         for (Tree subArbolNivel1 : movimientosComputadora) {
-            Node nodoNivel1 = subArbolNivel1.getRoot();
+            TreeNode nodoNivel1 = subArbolNivel1.getRoot();
             Board estadoNivel1 = nodoNivel1.getEstado();
 
             // Si la computadora gana inmediatamente o el Board se llena:
-            if (estadoNivel1.verificarGanador() == this.symbol || estadoNivel1.estaLleno()) {
+            if (estadoNivel1.checkWinner() == this.symbol || estadoNivel1.estaLleno()) {
                 int utilidadTerminal = calcularUtilidad(estadoNivel1, this.symbol);
                 nodoNivel1.setUtilidad(utilidadTerminal);
             } else {
@@ -229,7 +222,7 @@ public class Computer {
                     int minUtilidadFamilia = Integer.MAX_VALUE;
 
                     for (Tree subArbolNivel2 : respuestasOponente) {
-                        Node nodoNivel2 = subArbolNivel2.getRoot();
+                        TreeNode nodoNivel2 = subArbolNivel2.getRoot();
                         int uNieto = calcularUtilidad(nodoNivel2.getEstado(), this.symbol);
                         nodoNivel2.setUtilidad(uNieto);
 
@@ -305,7 +298,7 @@ public class Computer {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (BoardActual.getCelda(i, j) == 0 && mejorBoard.getCelda(i, j) == this.symbol) {
+                if (BoardActual.getCell(i, j) == 0 && mejorBoard.getCell(i, j) == this.symbol) {
                     return new int[]{i, j};
                 }
             }
