@@ -31,7 +31,7 @@ public class SymbolSelectionActivity extends AppCompatActivity {
             return insets;
         });
 
-        this.buttonX = findViewById(R.id.buttonX);
+        this.buttonX = findViewById(R.id.imageWinner);
         this.buttonX.setOnClickListener(v -> {
             selectSymbolX();
         });
@@ -41,7 +41,7 @@ public class SymbolSelectionActivity extends AppCompatActivity {
             selectSymbolO();
         });
 
-        this.buttonStartGame = findViewById(R.id.buttonStartGame);
+        this.buttonStartGame = findViewById(R.id.buttonRestartGame);
         this.buttonStartGame.setOnClickListener(v -> {
             startGame();
         });

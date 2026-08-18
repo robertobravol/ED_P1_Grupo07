@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Handler;
-import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -100,8 +99,9 @@ public class BoardActivity extends AppCompatActivity {
         }
 
         // Verifica si alguien ganó la partida.
-        if (board.checkWinner() != 0) {
-            showResult();
+        int winner = board.checkWinner();
+        if (winner != 0) {
+            showResult(winner);
             return;
         }
 
@@ -131,11 +131,12 @@ public class BoardActivity extends AppCompatActivity {
     }
 
     // Muestra el resultado de la partida.
-    private void showResult() {
+    private void showResult(int winnerSymbol) {
         setBoardEnabled(false);
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            View resultGame = findViewById(R.id.resultContainer);
-            resultGame.setVisibility(View.VISIBLE);
+            Intent intent = new Intent(BoardActivity.this, GameResultActivity.class);
+            intent.putExtra("winnerSymbol", winnerSymbol);
+            startActivity(intent);
 
             setBoardEnabled(true);
         }, 1000);

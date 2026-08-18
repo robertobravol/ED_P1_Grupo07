@@ -12,6 +12,7 @@
 
 
     <!-- PANEL PRINCIPAL -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
@@ -50,55 +51,45 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-            <!-- X -->
-            <ImageButton
+            <ImageView
                 android:id="@+id/imageWinner"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginEnd="8dp"
                 android:alpha="0.5"
                 android:background="@android:color/transparent"
-                android:contentDescription="Seleccionar X"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
 
-                android:src="@drawable/x_selector"
+                android:src="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toStartOf="@id/buttonO"
 
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_max="140dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_max="140dp" />
 
 
-            <!-- O -->
-            <ImageButton
-                android:id="@+id/buttonO"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:alpha="0.5"
-                android:background="@android:color/transparent"
-                android:contentDescription="Seleccionar O"
-                android:padding="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/circle_selector"
+            <TextView
+                android:id="@+id/textResult2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Ganador:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
 
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toTopOf="@+id/imageWinner"
                 app:layout_constraintEnd_toEndOf="parent"
-
-                app:layout_constraintHeight_max="140dp"
-                app:layout_constraintStart_toEndOf="@id/imageWinner"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_max="140dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <!-- BOTÓN EMPEZAR -->
+        <!-- BOTÓN VOLVER A JUGAR -->
         <Button
             android:id="@+id/buttonRestartGame"
             android:layout_width="0dp"
@@ -108,7 +99,7 @@
             android:layout_marginBottom="60dp"
             android:backgroundTint="#0E2978"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="Empezar"
+            android:text="Volver a jugar"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -130,14 +121,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:fontFamily="sans-serif"
-        android:text="Seleccione un símbolo"
+        android:text="Resultado de la partida"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@id/constraintLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
