@@ -10,7 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.espol.ed_p1_grupo07.model.Board;
+import com.espol.ed_p1_grupo07.model.Computer;
+import com.espol.ed_p1_grupo07.model.Player;
+
 public class BoardActivity extends AppCompatActivity {
+
+    private ImageButton buttonCloseGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +29,20 @@ public class BoardActivity extends AppCompatActivity {
             return insets;
         });
 
-        ImageButton buttonCloseGame = findViewById(R.id.buttonCloseGame);
-        buttonCloseGame.setOnClickListener(v -> {
+        // Recibe el símbolo seleccionado por el jugador
+        int playerSymbol = getIntent().getIntExtra("playerSymbol", 0);
+
+        this.buttonCloseGame = findViewById(R.id.buttonCloseGame);
+        this.buttonCloseGame.setOnClickListener(v -> {
             closeGame();
         });
+
+        Player player = new Player(playerSymbol);
+        Computer computer = new Computer(-playerSymbol);
+        Board board = new Board();
     }
 
+    // Finaliza el juego sin terminar la partida y lo envía al menú principal (MainActivity).
     private void closeGame() {
         Intent intent = new Intent(BoardActivity.this, MainActivity.class);
         startActivity(intent);

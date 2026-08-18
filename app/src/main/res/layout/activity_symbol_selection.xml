@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".SymbolSelectionActivity">
+
+
+    <!-- PANEL PRINCIPAL -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/panel_main_menu"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHeight_max="520dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintWidth_max="440dp">
+
+
+        <!-- CONTENEDOR DE LOS SÍMBOLOS -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/symbolContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
+
+            app:layout_constraintBottom_toTopOf="@id/buttonStartGame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <!-- X -->
+            <ImageButton
+                android:id="@+id/buttonX"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:alpha="0.5"
+                android:background="@android:color/transparent"
+                android:contentDescription="Seleccionar X"
+                android:padding="4dp"
+                android:scaleType="fitCenter"
+
+                android:src="@drawable/x_selector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/buttonO"
+
+                app:layout_constraintHeight_max="140dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="140dp" />
+
+
+            <!-- O -->
+            <ImageButton
+                android:id="@+id/buttonO"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:alpha="0.5"
+                android:background="@android:color/transparent"
+                android:contentDescription="Seleccionar O"
+                android:padding="4dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/circle_selector"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintHeight_max="140dp"
+                app:layout_constraintStart_toEndOf="@id/buttonX"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="140dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- BOTÓN EMPEZAR -->
+        <Button
+            android:id="@+id/buttonStartGame"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="60dp"
+            android:backgroundTint="#0E2978"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Empezar"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:cornerRadius="14dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_max="260dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- TÍTULO -->
+    <TextView
+        android:id="@+id/textSelectSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif"
+        android:text="Seleccione un símbolo"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

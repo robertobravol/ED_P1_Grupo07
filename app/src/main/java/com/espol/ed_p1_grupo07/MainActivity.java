@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void play() {
-        // Implementación para empezar una partida en el juego.
-        Intent intent = new Intent(MainActivity.this, BoardActivity.class);
+        // Enviará al jugador a escoger su símbolo para jugar.
+        Intent intent = new Intent(MainActivity.this, SymbolSelectionActivity.class);
         startActivity(intent);
     }
 

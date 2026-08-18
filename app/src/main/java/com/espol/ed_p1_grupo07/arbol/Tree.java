@@ -1,6 +1,6 @@
 package com.espol.ed_p1_grupo07.arbol;
 
-import com.espol.ed_p1_grupo07.Tablero;
+import com.espol.ed_p1_grupo07.model.Board;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +32,11 @@ public class Tree {
             int fila = coordenada[0];
             int columna = coordenada[1];
 
-            Tablero nuevoTablero = root.getEstado().clonarTablero();
+            Board nuevoBoard = root.getEstado().clonarTablero();
 
-            nuevoTablero.marcarCasillas(fila, columna, root.getJugadorEnTurno());
+            nuevoBoard.marcarCasillas(fila, columna, root.getJugadorEnTurno());
 
-            Node nuevoNodo = new Node(nuevoTablero, cambiarJugadorEnTurno(root.getJugadorEnTurno()));
+            Node nuevoNodo = new Node(nuevoBoard, cambiarJugadorEnTurno(root.getJugadorEnTurno()));
 
             Tree nuevoArbol = new Tree(nuevoNodo);
 

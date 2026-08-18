@@ -1,18 +1,18 @@
 package com.espol.ed_p1_grupo07.arbol;
 
-import com.espol.ed_p1_grupo07.Tablero;
+import com.espol.ed_p1_grupo07.model.Board;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
 
-    Tablero estado;
+    Board estado;
     private List<Tree> hijos;
     int utilidad;
     int jugadorEnTurno;
 
-    public Node(Tablero estado, int utilidad, int jugadorEnTurno) {
+    public Node(Board estado, int utilidad, int jugadorEnTurno) {
 
         this.hijos = new ArrayList<>();
         this.estado = estado;
@@ -21,7 +21,7 @@ public class Node {
 
     }
 
-    public Node(Tablero estado, int jugadorEnTurno) {
+    public Node(Board estado, int jugadorEnTurno) {
 
         this.estado = estado;
         this.jugadorEnTurno = jugadorEnTurno;
@@ -29,13 +29,13 @@ public class Node {
     }
 
 
-    public Tablero getEstado() {
+    public Board getEstado() {
 
         return estado;
 
     }
 
-    public void setEstado(Tablero estado) {
+    public void setEstado(Board estado) {
 
         this.estado = estado;
 
