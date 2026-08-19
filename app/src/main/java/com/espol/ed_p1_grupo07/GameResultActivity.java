@@ -17,7 +17,8 @@ public class GameResultActivity extends AppCompatActivity {
 
     private ImageView imageWinner;
     private Button buttonRestartGame;
-
+    private Button buttonRegresarHome;
+    private int modoJuego = 0;
 
 
     @Override
@@ -35,20 +36,40 @@ public class GameResultActivity extends AppCompatActivity {
 
         int winnerSymbol = getIntent().getIntExtra("winnerSymbol", 0);
 
+        modoJuego = getIntent().getIntExtra("modoJuego", 0);
+
         if (winnerSymbol == Board.CIRCLE) {
             imageWinner.setImageResource(R.drawable.circle_selector);
         } else if (winnerSymbol == Board.X) {
             imageWinner.setImageResource(R.drawable.x_selector);
         }
 
-        buttonRestartGame = findViewById(R.id.buttonRestartGame);
+        buttonRestartGame = findViewById(R.id.buttonRegresar);
         buttonRestartGame.setOnClickListener(v -> {
             restartGame();
         });
+
+        buttonRegresarHome = findViewById(R.id.buttonRegresarHome);
+        buttonRegresarHome.setOnClickListener(v -> {
+            regresarHome();
+        });
+
     }
 
     private void restartGame() {
+
         Intent intent = new Intent(GameResultActivity.this, SymbolSelectionActivity.class);
+        intent.putExtra("modoJuego", modoJuego);
         startActivity(intent);
+
     }
+
+    private void regresarHome() {
+
+        Intent intent = new Intent(GameResultActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
+
 }

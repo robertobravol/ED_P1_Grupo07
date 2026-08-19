@@ -43,9 +43,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="25dp"
 
-            app:layout_constraintBottom_toTopOf="@id/buttonRestartGame"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRegresarHome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -86,26 +85,47 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <Button
+                android:id="@+id/buttonRegresar"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="45dp"
+                android:backgroundTint="#0E2978"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Volver a jugar"
+
+                android:textColor="#FFFFFF"
+
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:cornerRadius="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageWinner" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <!-- BOTÓN VOLVER A JUGAR -->
+
         <Button
-            android:id="@+id/buttonRestartGame"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:id="@+id/buttonRegresarHome"
+            android:layout_width="262dp"
+            android:layout_height="71dp"
             android:layout_marginStart="45dp"
             android:layout_marginEnd="45dp"
             android:layout_marginBottom="60dp"
             android:backgroundTint="#0E2978"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="Volver a jugar"
+            android:text="Regresar Pantalla Principal"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
+
             android:textStyle="bold"
 
             app:cornerRadius="14dp"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

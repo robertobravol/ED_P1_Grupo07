@@ -10,21 +10,22 @@
     tools:context=".BoardActivity">
 
     <!-- TABLERO COMPLETO -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/boardLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/board3x3"
 
-        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
 
-        app:layout_constraintVertical_bias="0.55">
+        app:layout_constraintWidth_percent="0.95">
 
 
         <!--
@@ -33,6 +34,7 @@
             Este GridLayout se coloca SOLO sobre
             las 9 celdas y no sobre el marco.
         -->
+
         <GridLayout
             android:id="@+id/cellsLayout"
             android:layout_width="0dp"
@@ -41,13 +43,13 @@
             android:columnCount="3"
             android:rowCount="3"
 
-            app:layout_constraintWidth_percent="0.74"
-            app:layout_constraintHeight_percent="0.67"
-
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHeight_percent="0.67"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintWidth_percent="0.74">
 
 
             <!-- FILA 1 -->
@@ -166,5 +168,25 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSiguienteTurno"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#00B4D8"
+        android:elevation="8dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Siguiente Turno"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/boardLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

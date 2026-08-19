@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -36,57 +35,95 @@
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/panel_main_menu"
-        app:layout_constraintWidth_max="400dp"
-        app:layout_constraintHeight_max="480dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="480dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_max="400dp">
 
+        <!-- Botón 1: Humano vs PC -->
+
+        <!-- Botón 2: Humano vs Humano -->
         <Button
-            android:id="@+id/buttonPlay"
+            android:id="@+id/buttonModo0"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="55dp"
-            android:layout_marginEnd="40dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="30dp"
             android:backgroundTint="#0E2978"
             android:elevation="8dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="Jugar partida"
-            android:textAlignment="viewStart"
+            android:text="1 JUGADOR"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:cornerRadius="14dp"
-            app:iconPadding="8dp"
-            app:iconSize="22dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/buttonCloseApp"
+            android:id="@+id/buttonModo1"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="40dp"
-            android:backgroundTint="#780E0E"
+            android:layout_height="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#0E2978"
+            android:elevation="8dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="Salir del juego"
-            android:textAlignment="viewStart"
+            android:text="2 JUGADORES"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:cornerRadius="14dp"
-            app:iconPadding="8dp"
-            app:iconSize="26dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buttonPlay" />
+            app:layout_constraintTop_toBottomOf="@id/buttonModo0" />
+
+        <!-- Botón 3: PC vs PC -->
+        <Button
+            android:id="@+id/buttonModo2"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#0E2978"
+            android:elevation="8dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="PC vs PC"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonModo1" />
+
+        <!-- Botón 4: Salir del juego -->
+        <Button
+            android:id="@+id/buttonCloseApp"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#780E0E"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="SALIR DEL JUEGO"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonModo2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
